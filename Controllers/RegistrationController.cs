@@ -42,6 +42,16 @@ namespace AuthAPI.Controllers
                 });
             }
 
+            if (existingUser?.userName == request.userName)
+            {
+                return Conflict(new
+                {
+                    message = "A user with this username already exists."
+                });
+            }
+
+
+
             var user = new UsersModel
             {
                 userName = request.userName,

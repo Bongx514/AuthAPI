@@ -1,6 +1,8 @@
 @AuthAPI_HostAddress = http://localhost:5090
 
 POST {{AuthAPI_HostAddress}}/registration/
+GET {{AuthAPI_HostAddress}}/getusers/
+GET {{AuthAPI_HostAddress}}/Auth/
 Accept: application/json
 
 ###

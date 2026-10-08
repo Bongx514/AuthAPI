@@ -9,6 +9,7 @@ services:
       - "8080:8080"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+      JWT_SECRET: "${JWT_SECRET}"
       ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=MaintenanceManager;User Id=sa;Password=${SA_PASSWORD};TrustServerCertificate=True;MultipleActiveResultSets=True"
     depends_on:
       sqlserver:
