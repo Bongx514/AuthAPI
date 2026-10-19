@@ -3,6 +3,8 @@
 POST {{AuthAPI_HostAddress}}/registration/
 GET {{AuthAPI_HostAddress}}/getusers/
 GET {{AuthAPI_HostAddress}}/Auth/
+GET {{AuthAPI_HostAddress}}/GetCurrentUser/1
+
 Accept: application/json
 
 ###

@@ -85,9 +85,8 @@ namespace AuthAPI.Controllers
         private string GenerateToken(UsersModel user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-
             var keyValue = _configuration["JWT_SECRET"];
-            var key = Encoding.ASCII.GetBytes(keyValue);
+            var key = Encoding.ASCII.GetBytes(keyValue ?? "");
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -95,7 +94,8 @@ namespace AuthAPI.Controllers
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.pkiUserID.ToString()),
                     new Claim(ClaimTypes.Name, user.userName ?? ""),
-                    new Claim(ClaimTypes.Email, user.userEmail ?? "")
+                    new Claim(ClaimTypes.Email, user.userEmail ?? ""),
+                    new Claim(ClaimTypes.Role, user.fkiRoleID.ToString() ?? "")
                 }),
 
                 Expires = DateTime.UtcNow.AddHours(1),

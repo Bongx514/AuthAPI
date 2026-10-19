@@ -22,6 +22,7 @@ namespace AuthAPI.Controllers
             if (string.IsNullOrWhiteSpace(request.userName) ||
                 string.IsNullOrWhiteSpace(request.firstName) ||
                 string.IsNullOrWhiteSpace(request.lastName) ||
+                request.roleID == null ||
                 string.IsNullOrWhiteSpace(request.userEmail) ||
                 string.IsNullOrWhiteSpace(request.password))
             {
@@ -50,13 +51,12 @@ namespace AuthAPI.Controllers
                 });
             }
 
-
-
             var user = new UsersModel
             {
                 userName = request.userName,
                 firstName = request.firstName,
                 lastName = request.lastName,
+                fkiRoleID = request.roleID,
                 userEmail = request.userEmail,
                 hashPassword = BCrypt.Net.BCrypt.HashPassword(request.password),
                 isActive = true,

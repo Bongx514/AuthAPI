@@ -9,6 +9,9 @@ namespace AuthAPI.Models
         public string? firstName { get; set; }
         public string? lastName { get; set; }
         public string? userEmail { get; set; }
+        public int? fkiRoleID { get; set; }
+        public int? genderID { get; set; }
+        public int? nationalityID { get; set; }
         public string? hashPassword { get; set; }
         public bool? isActive { get; set; }
         public bool? isBlocked { get; set; }
