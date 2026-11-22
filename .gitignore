@@ -1,6 +1,6 @@
 
+.env
 .vs/
-.env/
 .postman/
 **/bin/
 **/obj/
